@@ -35,12 +35,14 @@
 
 <p id="result">Your Phrase count will be shown here. </p>
 
+<div class="container">
+    <img id="animals" src="Dog.jpg" class="img-fluid" alt="Dog" onclick="newImage(this)"
+        height="200" width="200">
+</div>
 <script>
     correct = 0;
         wrong = 0;
-
     function processPhrase() {
-        
         console.log("Checking the Guess......")
         secret_Word = document.getElementById("form1_secret_word").value
         guess_word = document.getElementById("form1_guess_word").value
@@ -63,7 +65,27 @@
             alert("Please Phrase the word again.!!!")
         }
     }
-
+    var image = 1;
+    function newImage(){
+    switch(image){
+        case 1:
+        document.getElementById("animals").src =  "Dog.jpg" 
+        image = 2;
+        break;
+        case 2:
+        document.getElementById("animals").src = "Affenpinscher.jpg"
+        image = 3;
+        break;
+        case 3:
+        document.getElementById("animals").src = "Narwhal.jpg"
+        image = 1;
+        break;
+        default:
+        document.getElementById("animals").src =  "Dog.jpg" 
+        image = 1;
+        break;
+    }
+} 
  </script>
 
 </body>
