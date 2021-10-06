@@ -40,6 +40,8 @@
         height="200" width="200">
 </div>
 <script>
+    counter=0;
+
     correct = 0;
         wrong = 0;
     function processPhrase() {
@@ -48,6 +50,8 @@
         guess_word = document.getElementById("form1_guess_word").value
         confirm_guess = confirm("Is this guess word? " + guess_word)
         result = document.getElementById("result")
+        if(counter<3)
+        {
         if (confirm_guess) {
             if (secret_Word.localeCompare(guess_word) == 0) {
                 alert("Access Allowed.")
@@ -59,11 +63,16 @@
                 alert("Access Denied")
                 wrong = wrong + 1
                 result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+                counter++;
             }
             
         } else {
             alert("Please Phrase the word again.!!!")
         }
+    }
+    else{
+        alert("Account locked")
+    }
     }
     var image = 1;
     function newImage(){
